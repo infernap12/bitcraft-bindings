@@ -6,7 +6,7 @@ on:
     - cron: '0 2 * * *'
   workflow_dispatch: # Allow manual trigger
   push:
-    branches: [ main, master ]
+    branches: [ main, github-action ]
 
 jobs:
   generate-bindings:
