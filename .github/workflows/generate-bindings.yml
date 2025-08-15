@@ -1,0 +1,92 @@
+name: Generate Bitcraft Bindings
+
+on:
+  schedule:
+    # Run daily at 2 AM UTC
+    - cron: '0 2 * * *'
+  workflow_dispatch: # Allow manual trigger
+  push:
+    branches: [ main, master ]
+
+jobs:
+  generate-bindings:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+      with:
+        token: ${{ secrets.GITHUB_TOKEN }}
+        
+    - name: Install dependencies
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y jq curl
+        
+    - name: Install SpacetimeDB CLI
+      run: |
+        # Use the -y flag to skip interactive prompts (confirmed from script inspection)
+        curl -sSf https://install.spacetimedb.com | sh -s -- -y
+        
+        # Add to PATH for this job
+        echo "$HOME/.local/bin" >> $GITHUB_PATH
+        
+    - name: Verify SpacetimeDB CLI installation
+      run: |
+        # Reload PATH
+        export PATH="$HOME/.local/bin:$PATH"
+        spacetime --version
+        
+    - name: Make generate script executable
+      run: chmod +x generate.sh
+        
+    - name: Generate bindings
+      run: |
+        # Ensure SpacetimeDB CLI is in PATH
+        export PATH="$HOME/.local/bin:$PATH"
+        ./generate.sh
+        
+    - name: Setup Rust toolchain
+      uses: actions-rs/toolchain@v1
+      with:
+        toolchain: stable
+        components: rustfmt, clippy
+        default: true
+        
+    - name: Build to verify bindings
+      run: cargo build --verbose
+      
+    - name: Run basic tests if any exist
+      run: |
+        if [ -f "Cargo.toml" ] && grep -q "\[dev-dependencies\]" Cargo.toml; then
+          cargo test --verbose
+        else
+          echo "No tests found, skipping test step"
+        fi
+      continue-on-error: true
+      
+    - name: Check if there are changes
+      id: verify-changed-files
+      run: |
+        if [ -n "$(git status --porcelain)" ]; then
+          echo "changed=true" >> $GITHUB_OUTPUT
+        else
+          echo "changed=false" >> $GITHUB_OUTPUT
+        fi
+        
+    - name: Commit and push changes
+      if: steps.verify-changed-files.outputs.changed == 'true'
+      run: |
+        git config --local user.email "action@github.com"
+        git config --local user.name "GitHub Action"
+        git add -A
+        git commit -m "Update bindings $(date -u +%Y-%m-%d-%H%M%S)"
+        git push
+        
+    - name: Report status
+      run: |
+        if [ "${{ steps.verify-changed-files.outputs.changed }}" == "true" ]; then
+          echo "✅ Bindings updated successfully"
+        else
+          echo "ℹ️ No changes detected - bindings are up to date"
+        fi
