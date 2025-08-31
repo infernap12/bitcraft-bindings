@@ -5,6 +5,7 @@
 
 #![allow(unused, clippy::all)]
 use spacetimedb_sdk::__codegen::{self as __sdk, __lib, __sats, __ws};
+use spacetimedb_sdk::ConnectionId;
 
 pub mod a_i_debug_state_table;
 pub mod achievement_desc_table;
@@ -8201,15 +8202,15 @@ impl __sdk::InModule for DbConnection {
 
 impl __sdk::DbContext for DbConnection {
     type DbView = RemoteTables;
-    type Reducers = RemoteReducers;
-    type SetReducerFlags = SetReducerFlags;
-
     fn db(&self) -> &Self::DbView {
         &self.db
     }
+    type Reducers = RemoteReducers;
+
     fn reducers(&self) -> &Self::Reducers {
         &self.reducers
     }
+    type SetReducerFlags = SetReducerFlags;
     fn set_reducer_flags(&self) -> &Self::SetReducerFlags {
         &self.set_reducer_flags
     }
@@ -8234,6 +8235,11 @@ impl __sdk::DbContext for DbConnection {
     fn connection_id(&self) -> __sdk::ConnectionId {
         self.imp.connection_id()
     }
+
+    fn try_connection_id(&self) -> Option<__sdk::ConnectionId> {{
+        self.imp.try_connection_id()
+    }}
+
 }
 
 impl DbConnection {
@@ -8419,15 +8425,15 @@ impl __sdk::InModule for EventContext {
 
 impl __sdk::DbContext for EventContext {
     type DbView = RemoteTables;
-    type Reducers = RemoteReducers;
-    type SetReducerFlags = SetReducerFlags;
-
     fn db(&self) -> &Self::DbView {
         &self.db
     }
+    type Reducers = RemoteReducers;
+
     fn reducers(&self) -> &Self::Reducers {
         &self.reducers
     }
+    type SetReducerFlags = SetReducerFlags;
     fn set_reducer_flags(&self) -> &Self::SetReducerFlags {
         &self.set_reducer_flags
     }
@@ -8451,6 +8457,10 @@ impl __sdk::DbContext for EventContext {
     }
     fn connection_id(&self) -> __sdk::ConnectionId {
         self.imp.connection_id()
+    }
+
+    fn try_connection_id(&self) -> Option<__sdk::ConnectionId> {
+        self.imp.try_connection_id()
     }
 }
 
@@ -8495,15 +8505,15 @@ impl __sdk::InModule for ReducerEventContext {
 
 impl __sdk::DbContext for ReducerEventContext {
     type DbView = RemoteTables;
-    type Reducers = RemoteReducers;
-    type SetReducerFlags = SetReducerFlags;
-
     fn db(&self) -> &Self::DbView {
         &self.db
     }
+    type Reducers = RemoteReducers;
+
     fn reducers(&self) -> &Self::Reducers {
         &self.reducers
     }
+    type SetReducerFlags = SetReducerFlags;
     fn set_reducer_flags(&self) -> &Self::SetReducerFlags {
         &self.set_reducer_flags
     }
@@ -8527,6 +8537,9 @@ impl __sdk::DbContext for ReducerEventContext {
     }
     fn connection_id(&self) -> __sdk::ConnectionId {
         self.imp.connection_id()
+    }
+    fn try_connection_id(&self) -> Option<__sdk::ConnectionId> {
+        self.imp.try_connection_id()
     }
 }
 
@@ -8567,15 +8580,15 @@ impl __sdk::InModule for SubscriptionEventContext {
 
 impl __sdk::DbContext for SubscriptionEventContext {
     type DbView = RemoteTables;
-    type Reducers = RemoteReducers;
-    type SetReducerFlags = SetReducerFlags;
-
     fn db(&self) -> &Self::DbView {
         &self.db
     }
+    type Reducers = RemoteReducers;
+
     fn reducers(&self) -> &Self::Reducers {
         &self.reducers
     }
+    type SetReducerFlags = SetReducerFlags;
     fn set_reducer_flags(&self) -> &Self::SetReducerFlags {
         &self.set_reducer_flags
     }
@@ -8599,6 +8612,9 @@ impl __sdk::DbContext for SubscriptionEventContext {
     }
     fn connection_id(&self) -> __sdk::ConnectionId {
         self.imp.connection_id()
+    }
+    fn try_connection_id(&self) -> Option<__sdk::ConnectionId> {
+        self.imp.try_connection_id()
     }
 }
 
@@ -8643,15 +8659,15 @@ impl __sdk::InModule for ErrorContext {
 
 impl __sdk::DbContext for ErrorContext {
     type DbView = RemoteTables;
-    type Reducers = RemoteReducers;
-    type SetReducerFlags = SetReducerFlags;
-
     fn db(&self) -> &Self::DbView {
         &self.db
     }
+    type Reducers = RemoteReducers;
+
     fn reducers(&self) -> &Self::Reducers {
         &self.reducers
     }
+    type SetReducerFlags = SetReducerFlags;
     fn set_reducer_flags(&self) -> &Self::SetReducerFlags {
         &self.set_reducer_flags
     }
@@ -8675,6 +8691,9 @@ impl __sdk::DbContext for ErrorContext {
     }
     fn connection_id(&self) -> __sdk::ConnectionId {
         self.imp.connection_id()
+    }
+    fn try_connection_id(&self) -> Option<__sdk::ConnectionId> {
+        self.imp.try_connection_id()
     }
 }
 
