@@ -59,6 +59,8 @@ pub mod auction_listing_state_type;
 pub mod authenticate_reducer;
 pub mod auto_claim_state_table;
 pub mod auto_claim_state_type;
+pub mod bank_state_table;
+pub mod bank_state_type;
 pub mod barter_stall_state_table;
 pub mod barter_stall_state_type;
 pub mod biome_desc_table;
@@ -173,6 +175,8 @@ pub mod construction_recipe_desc_table;
 pub mod construction_recipe_desc_type;
 pub mod contribution_loot_desc_table;
 pub mod contribution_loot_desc_type;
+pub mod contribution_loot_desc_v_2_table;
+pub mod contribution_loot_desc_v_2_type;
 pub mod contribution_state_table;
 pub mod contribution_state_type;
 pub mod crafting_recipe_desc_table;
@@ -651,6 +655,8 @@ pub mod loot_table_desc_table;
 pub mod loot_table_desc_type;
 pub mod lost_items_state_table;
 pub mod lost_items_state_type;
+pub mod marketplace_state_table;
+pub mod marketplace_state_type;
 pub mod message_contents_type;
 pub mod mobile_entity_state_table;
 pub mod mobile_entity_state_type;
@@ -723,6 +729,8 @@ pub mod player_developer_notification_state_type;
 pub mod player_dismiss_notification_reducer;
 pub mod player_housing_desc_table;
 pub mod player_housing_desc_type;
+pub mod player_housing_moving_cost_state_table;
+pub mod player_housing_moving_cost_state_type;
 pub mod player_housing_state_op_type;
 pub mod player_housing_state_table;
 pub mod player_housing_state_type;
@@ -833,6 +841,7 @@ pub mod skill_category_type;
 pub mod skill_desc_table;
 pub mod skill_desc_type;
 pub mod skill_type_type;
+pub mod small_hex_tile_message_type;
 pub mod stage_achievement_desc_reducer;
 pub mod stage_alert_desc_reducer;
 pub mod stage_biome_desc_reducer;
@@ -921,12 +930,15 @@ pub mod staged_static_data_table;
 pub mod staged_static_data_type;
 pub mod staged_static_data_v_2_table;
 pub mod staged_static_data_v_2_type;
+pub mod staged_static_data_v_3_table;
+pub mod staged_static_data_v_3_type;
 pub mod stamina_state_table;
 pub mod stamina_state_type;
 pub mod starving_player_state_table;
 pub mod starving_player_state_type;
 pub mod static_data_upload_type;
 pub mod static_data_upload_v_2_type;
+pub mod static_data_upload_v_3_type;
 pub mod storage_log_state_table;
 pub mod surface_type_type;
 pub mod target_state_table;
@@ -984,6 +996,8 @@ pub mod update_scheduled_timers_from_static_data_reducer;
 pub mod user_authentication_state_op_type;
 pub mod user_authentication_state_table;
 pub mod user_authentication_state_type;
+pub mod user_creation_timestamp_state_table;
+pub mod user_creation_timestamp_state_type;
 pub mod user_moderation_clear_all_reducer;
 pub mod user_moderation_create_reducer;
 pub mod user_moderation_create_user_policy_request_type;
@@ -1010,6 +1024,8 @@ pub mod visibility_state_type;
 pub mod visibility_type_type;
 pub mod wall_desc_table;
 pub mod wall_desc_type;
+pub mod waystone_state_table;
+pub mod waystone_state_type;
 pub mod weapon_desc_table;
 pub mod weapon_desc_type;
 pub mod weapon_type_desc_table;
@@ -1130,6 +1146,8 @@ pub use auction_listing_state_type::AuctionListingState;
 pub use authenticate_reducer::{authenticate, set_flags_for_authenticate, AuthenticateCallbackId};
 pub use auto_claim_state_table::*;
 pub use auto_claim_state_type::AutoClaimState;
+pub use bank_state_table::*;
+pub use bank_state_type::BankState;
 pub use barter_stall_state_table::*;
 pub use barter_stall_state_type::BarterStallState;
 pub use biome_desc_table::*;
@@ -1262,6 +1280,8 @@ pub use construction_recipe_desc_table::*;
 pub use construction_recipe_desc_type::ConstructionRecipeDesc;
 pub use contribution_loot_desc_table::*;
 pub use contribution_loot_desc_type::ContributionLootDesc;
+pub use contribution_loot_desc_v_2_table::*;
+pub use contribution_loot_desc_v_2_type::ContributionLootDescV2;
 pub use contribution_state_table::*;
 pub use contribution_state_type::ContributionState;
 pub use crafting_recipe_desc_table::*;
@@ -2212,6 +2232,8 @@ pub use loot_table_desc_table::*;
 pub use loot_table_desc_type::LootTableDesc;
 pub use lost_items_state_table::*;
 pub use lost_items_state_type::LostItemsState;
+pub use marketplace_state_table::*;
+pub use marketplace_state_type::MarketplaceState;
 pub use message_contents_type::MessageContents;
 pub use mobile_entity_state_table::*;
 pub use mobile_entity_state_type::MobileEntityState;
@@ -2295,6 +2317,8 @@ pub use player_dismiss_notification_reducer::{
 };
 pub use player_housing_desc_table::*;
 pub use player_housing_desc_type::PlayerHousingDesc;
+pub use player_housing_moving_cost_state_table::*;
+pub use player_housing_moving_cost_state_type::PlayerHousingMovingCostState;
 pub use player_housing_state_op_type::PlayerHousingStateOp;
 pub use player_housing_state_table::*;
 pub use player_housing_state_type::PlayerHousingState;
@@ -2427,6 +2451,7 @@ pub use skill_category_type::SkillCategory;
 pub use skill_desc_table::*;
 pub use skill_desc_type::SkillDesc;
 pub use skill_type_type::SkillType;
+pub use small_hex_tile_message_type::SmallHexTileMessage;
 pub use stage_achievement_desc_reducer::{
     set_flags_for_stage_achievement_desc, stage_achievement_desc, StageAchievementDescCallbackId,
 };
@@ -2730,12 +2755,15 @@ pub use staged_static_data_table::*;
 pub use staged_static_data_type::StagedStaticData;
 pub use staged_static_data_v_2_table::*;
 pub use staged_static_data_v_2_type::StagedStaticDataV2;
+pub use staged_static_data_v_3_table::*;
+pub use staged_static_data_v_3_type::StagedStaticDataV3;
 pub use stamina_state_table::*;
 pub use stamina_state_type::StaminaState;
 pub use starving_player_state_table::*;
 pub use starving_player_state_type::StarvingPlayerState;
 pub use static_data_upload_type::StaticDataUpload;
 pub use static_data_upload_v_2_type::StaticDataUploadV2;
+pub use static_data_upload_v_3_type::StaticDataUploadV3;
 pub use storage_log_state_table::*;
 pub use surface_type_type::SurfaceType;
 pub use target_state_table::*;
@@ -2800,6 +2828,8 @@ pub use update_scheduled_timers_from_static_data_reducer::{
 pub use user_authentication_state_op_type::UserAuthenticationStateOp;
 pub use user_authentication_state_table::*;
 pub use user_authentication_state_type::UserAuthenticationState;
+pub use user_creation_timestamp_state_table::*;
+pub use user_creation_timestamp_state_type::UserCreationTimestampState;
 pub use user_moderation_clear_all_reducer::{
     set_flags_for_user_moderation_clear_all, user_moderation_clear_all,
     UserModerationClearAllCallbackId,
@@ -2836,6 +2866,8 @@ pub use visibility_state_type::VisibilityState;
 pub use visibility_type_type::VisibilityType;
 pub use wall_desc_table::*;
 pub use wall_desc_type::WallDesc;
+pub use waystone_state_table::*;
+pub use waystone_state_type::WaystoneState;
 pub use weapon_desc_table::*;
 pub use weapon_desc_type::WeaponDesc;
 pub use weapon_type_desc_table::*;
@@ -3647,7 +3679,7 @@ pub enum Reducer {
         records: Vec<ConstructionRecipeDesc>,
     },
     StageContributionLootDesc {
-        records: Vec<ContributionLootDesc>,
+        records: Vec<ContributionLootDescV2>,
     },
     StageCraftingRecipeDesc {
         records: Vec<CraftingRecipeDesc>,
@@ -4567,6 +4599,7 @@ pub struct DbUpdate {
     attached_herds_state: __sdk::TableUpdate<AttachedHerdsState>,
     attack_outcome_state: __sdk::TableUpdate<AttackOutcomeState>,
     auto_claim_state: __sdk::TableUpdate<AutoClaimState>,
+    bank_state: __sdk::TableUpdate<BankState>,
     barter_stall_state: __sdk::TableUpdate<BarterStallState>,
     biome_desc: __sdk::TableUpdate<BiomeDesc>,
     blocked_identity: __sdk::TableUpdate<BlockedIdentity>,
@@ -4608,6 +4641,7 @@ pub struct DbUpdate {
     config: __sdk::TableUpdate<Config>,
     construction_recipe_desc: __sdk::TableUpdate<ConstructionRecipeDesc>,
     contribution_loot_desc: __sdk::TableUpdate<ContributionLootDesc>,
+    contribution_loot_desc_v_2: __sdk::TableUpdate<ContributionLootDescV2>,
     contribution_state: __sdk::TableUpdate<ContributionState>,
     crafting_recipe_desc: __sdk::TableUpdate<CraftingRecipeDesc>,
     deconstruction_recipe_desc: __sdk::TableUpdate<DeconstructionRecipeDesc>,
@@ -4718,6 +4752,7 @@ pub struct DbUpdate {
     loot_rarity_desc: __sdk::TableUpdate<LootRarityDesc>,
     loot_table_desc: __sdk::TableUpdate<LootTableDesc>,
     lost_items_state: __sdk::TableUpdate<LostItemsState>,
+    marketplace_state: __sdk::TableUpdate<MarketplaceState>,
     mobile_entity_state: __sdk::TableUpdate<MobileEntityState>,
     moderation_action_log_entry: __sdk::TableUpdate<ModerationActionLogEntry>,
     mounting_state: __sdk::TableUpdate<MountingState>,
@@ -4740,6 +4775,7 @@ pub struct DbUpdate {
     player_action_state: __sdk::TableUpdate<PlayerActionState>,
     player_developer_notification_state: __sdk::TableUpdate<PlayerDeveloperNotificationState>,
     player_housing_desc: __sdk::TableUpdate<PlayerHousingDesc>,
+    player_housing_moving_cost_state: __sdk::TableUpdate<PlayerHousingMovingCostState>,
     player_housing_state: __sdk::TableUpdate<PlayerHousingState>,
     player_lowercase_username_state: __sdk::TableUpdate<PlayerLowercaseUsernameState>,
     player_note_state: __sdk::TableUpdate<PlayerNoteState>,
@@ -4781,6 +4817,7 @@ pub struct DbUpdate {
     skill_desc: __sdk::TableUpdate<SkillDesc>,
     staged_static_data: __sdk::TableUpdate<StagedStaticData>,
     staged_static_data_v_2: __sdk::TableUpdate<StagedStaticDataV2>,
+    staged_static_data_v_3: __sdk::TableUpdate<StagedStaticDataV3>,
     stamina_state: __sdk::TableUpdate<StaminaState>,
     starving_player_state: __sdk::TableUpdate<StarvingPlayerState>,
     storage_log_state: __sdk::TableUpdate<ActionLogState>,
@@ -4805,6 +4842,7 @@ pub struct DbUpdate {
     unclaimed_collectibles_state: __sdk::TableUpdate<UnclaimedCollectiblesState>,
     unclaimed_shards_state: __sdk::TableUpdate<UnclaimedShardsState>,
     user_authentication_state: __sdk::TableUpdate<UserAuthenticationState>,
+    user_creation_timestamp_state: __sdk::TableUpdate<UserCreationTimestampState>,
     user_moderation_state: __sdk::TableUpdate<UserModerationState>,
     user_previous_region_state: __sdk::TableUpdate<UserPreviousRegionState>,
     user_region_state: __sdk::TableUpdate<UserRegionState>,
@@ -4812,6 +4850,7 @@ pub struct DbUpdate {
     vault_state: __sdk::TableUpdate<VaultState>,
     visibility_state: __sdk::TableUpdate<VisibilityState>,
     wall_desc: __sdk::TableUpdate<WallDesc>,
+    waystone_state: __sdk::TableUpdate<WaystoneState>,
     weapon_desc: __sdk::TableUpdate<WeaponDesc>,
     weapon_type_desc: __sdk::TableUpdate<WeaponTypeDesc>,
     world_region_name_state: __sdk::TableUpdate<WorldRegionNameState>,
@@ -4854,6 +4893,9 @@ impl TryFrom<__ws::DatabaseUpdate<__ws::BsatnFormat>> for DbUpdate {
                 "auto_claim_state" => db_update
                     .auto_claim_state
                     .append(auto_claim_state_table::parse_table_update(table_update)?),
+                "bank_state" => db_update
+                    .bank_state
+                    .append(bank_state_table::parse_table_update(table_update)?),
                 "barter_stall_state" => db_update
                     .barter_stall_state
                     .append(barter_stall_state_table::parse_table_update(table_update)?),
@@ -4980,6 +5022,9 @@ impl TryFrom<__ws::DatabaseUpdate<__ws::BsatnFormat>> for DbUpdate {
                 ),
                 "contribution_loot_desc" => db_update.contribution_loot_desc.append(
                     contribution_loot_desc_table::parse_table_update(table_update)?,
+                ),
+                "contribution_loot_desc_v2" => db_update.contribution_loot_desc_v_2.append(
+                    contribution_loot_desc_v_2_table::parse_table_update(table_update)?,
                 ),
                 "contribution_state" => db_update
                     .contribution_state
@@ -5323,6 +5368,9 @@ impl TryFrom<__ws::DatabaseUpdate<__ws::BsatnFormat>> for DbUpdate {
                 "lost_items_state" => db_update
                     .lost_items_state
                     .append(lost_items_state_table::parse_table_update(table_update)?),
+                "marketplace_state" => db_update
+                    .marketplace_state
+                    .append(marketplace_state_table::parse_table_update(table_update)?),
                 "mobile_entity_state" => db_update
                     .mobile_entity_state
                     .append(mobile_entity_state_table::parse_table_update(table_update)?),
@@ -5397,6 +5445,11 @@ impl TryFrom<__ws::DatabaseUpdate<__ws::BsatnFormat>> for DbUpdate {
                 "player_housing_desc" => db_update
                     .player_housing_desc
                     .append(player_housing_desc_table::parse_table_update(table_update)?),
+                "player_housing_moving_cost_state" => {
+                    db_update.player_housing_moving_cost_state.append(
+                        player_housing_moving_cost_state_table::parse_table_update(table_update)?,
+                    )
+                }
                 "player_housing_state" => db_update.player_housing_state.append(
                     player_housing_state_table::parse_table_update(table_update)?,
                 ),
@@ -5526,6 +5579,9 @@ impl TryFrom<__ws::DatabaseUpdate<__ws::BsatnFormat>> for DbUpdate {
                 "staged_static_data_v2" => db_update.staged_static_data_v_2.append(
                     staged_static_data_v_2_table::parse_table_update(table_update)?,
                 ),
+                "staged_static_data_v3" => db_update.staged_static_data_v_3.append(
+                    staged_static_data_v_3_table::parse_table_update(table_update)?,
+                ),
                 "stamina_state" => db_update
                     .stamina_state
                     .append(stamina_state_table::parse_table_update(table_update)?),
@@ -5598,6 +5654,9 @@ impl TryFrom<__ws::DatabaseUpdate<__ws::BsatnFormat>> for DbUpdate {
                 "user_authentication_state" => db_update.user_authentication_state.append(
                     user_authentication_state_table::parse_table_update(table_update)?,
                 ),
+                "user_creation_timestamp_state" => db_update.user_creation_timestamp_state.append(
+                    user_creation_timestamp_state_table::parse_table_update(table_update)?,
+                ),
                 "user_moderation_state" => db_update.user_moderation_state.append(
                     user_moderation_state_table::parse_table_update(table_update)?,
                 ),
@@ -5619,6 +5678,9 @@ impl TryFrom<__ws::DatabaseUpdate<__ws::BsatnFormat>> for DbUpdate {
                 "wall_desc" => db_update
                     .wall_desc
                     .append(wall_desc_table::parse_table_update(table_update)?),
+                "waystone_state" => db_update
+                    .waystone_state
+                    .append(waystone_state_table::parse_table_update(table_update)?),
                 "weapon_desc" => db_update
                     .weapon_desc
                     .append(weapon_desc_table::parse_table_update(table_update)?),
@@ -5693,6 +5755,9 @@ impl __sdk::DbUpdate for DbUpdate {
         diff.auto_claim_state = cache
             .apply_diff_to_table::<AutoClaimState>("auto_claim_state", &self.auto_claim_state)
             .with_updates_by_pk(|row| &row.entity_id);
+        diff.bank_state = cache
+            .apply_diff_to_table::<BankState>("bank_state", &self.bank_state)
+            .with_updates_by_pk(|row| &row.building_entity_id);
         diff.barter_stall_state = cache
             .apply_diff_to_table::<BarterStallState>("barter_stall_state", &self.barter_stall_state)
             .with_updates_by_pk(|row| &row.entity_id);
@@ -5863,6 +5928,12 @@ impl __sdk::DbUpdate for DbUpdate {
             .apply_diff_to_table::<ContributionLootDesc>(
                 "contribution_loot_desc",
                 &self.contribution_loot_desc,
+            )
+            .with_updates_by_pk(|row| &row.id);
+        diff.contribution_loot_desc_v_2 = cache
+            .apply_diff_to_table::<ContributionLootDescV2>(
+                "contribution_loot_desc_v2",
+                &self.contribution_loot_desc_v_2,
             )
             .with_updates_by_pk(|row| &row.id);
         diff.contribution_state = cache
@@ -6409,6 +6480,9 @@ impl __sdk::DbUpdate for DbUpdate {
         diff.lost_items_state = cache
             .apply_diff_to_table::<LostItemsState>("lost_items_state", &self.lost_items_state)
             .with_updates_by_pk(|row| &row.inventory_entity_id);
+        diff.marketplace_state = cache
+            .apply_diff_to_table::<MarketplaceState>("marketplace_state", &self.marketplace_state)
+            .with_updates_by_pk(|row| &row.building_entity_id);
         diff.mobile_entity_state = cache
             .apply_diff_to_table::<MobileEntityState>(
                 "mobile_entity_state",
@@ -6511,6 +6585,12 @@ impl __sdk::DbUpdate for DbUpdate {
                 &self.player_housing_desc,
             )
             .with_updates_by_pk(|row| &row.secondary_knowledge_id);
+        diff.player_housing_moving_cost_state = cache
+            .apply_diff_to_table::<PlayerHousingMovingCostState>(
+                "player_housing_moving_cost_state",
+                &self.player_housing_moving_cost_state,
+            )
+            .with_updates_by_pk(|row| &row.entity_id);
         diff.player_housing_state = cache
             .apply_diff_to_table::<PlayerHousingState>(
                 "player_housing_state",
@@ -6703,6 +6783,12 @@ impl __sdk::DbUpdate for DbUpdate {
                 &self.staged_static_data_v_2,
             )
             .with_updates_by_pk(|row| &row.version);
+        diff.staged_static_data_v_3 = cache
+            .apply_diff_to_table::<StagedStaticDataV3>(
+                "staged_static_data_v3",
+                &self.staged_static_data_v_3,
+            )
+            .with_updates_by_pk(|row| &row.version);
         diff.stamina_state = cache
             .apply_diff_to_table::<StaminaState>("stamina_state", &self.stamina_state)
             .with_updates_by_pk(|row| &row.entity_id);
@@ -6814,6 +6900,12 @@ impl __sdk::DbUpdate for DbUpdate {
                 &self.user_authentication_state,
             )
             .with_updates_by_pk(|row| &row.identity);
+        diff.user_creation_timestamp_state = cache
+            .apply_diff_to_table::<UserCreationTimestampState>(
+                "user_creation_timestamp_state",
+                &self.user_creation_timestamp_state,
+            )
+            .with_updates_by_pk(|row| &row.identity);
         diff.user_moderation_state = cache
             .apply_diff_to_table::<UserModerationState>(
                 "user_moderation_state",
@@ -6841,6 +6933,9 @@ impl __sdk::DbUpdate for DbUpdate {
         diff.wall_desc = cache
             .apply_diff_to_table::<WallDesc>("wall_desc", &self.wall_desc)
             .with_updates_by_pk(|row| &row.building_id);
+        diff.waystone_state = cache
+            .apply_diff_to_table::<WaystoneState>("waystone_state", &self.waystone_state)
+            .with_updates_by_pk(|row| &row.building_entity_id);
         diff.weapon_desc = cache
             .apply_diff_to_table::<WeaponDesc>("weapon_desc", &self.weapon_desc)
             .with_updates_by_pk(|row| &row.item_id);
@@ -6875,6 +6970,7 @@ pub struct AppliedDiff<'r> {
     attached_herds_state: __sdk::TableAppliedDiff<'r, AttachedHerdsState>,
     attack_outcome_state: __sdk::TableAppliedDiff<'r, AttackOutcomeState>,
     auto_claim_state: __sdk::TableAppliedDiff<'r, AutoClaimState>,
+    bank_state: __sdk::TableAppliedDiff<'r, BankState>,
     barter_stall_state: __sdk::TableAppliedDiff<'r, BarterStallState>,
     biome_desc: __sdk::TableAppliedDiff<'r, BiomeDesc>,
     blocked_identity: __sdk::TableAppliedDiff<'r, BlockedIdentity>,
@@ -6917,6 +7013,7 @@ pub struct AppliedDiff<'r> {
     config: __sdk::TableAppliedDiff<'r, Config>,
     construction_recipe_desc: __sdk::TableAppliedDiff<'r, ConstructionRecipeDesc>,
     contribution_loot_desc: __sdk::TableAppliedDiff<'r, ContributionLootDesc>,
+    contribution_loot_desc_v_2: __sdk::TableAppliedDiff<'r, ContributionLootDescV2>,
     contribution_state: __sdk::TableAppliedDiff<'r, ContributionState>,
     crafting_recipe_desc: __sdk::TableAppliedDiff<'r, CraftingRecipeDesc>,
     deconstruction_recipe_desc: __sdk::TableAppliedDiff<'r, DeconstructionRecipeDesc>,
@@ -7029,6 +7126,7 @@ pub struct AppliedDiff<'r> {
     loot_rarity_desc: __sdk::TableAppliedDiff<'r, LootRarityDesc>,
     loot_table_desc: __sdk::TableAppliedDiff<'r, LootTableDesc>,
     lost_items_state: __sdk::TableAppliedDiff<'r, LostItemsState>,
+    marketplace_state: __sdk::TableAppliedDiff<'r, MarketplaceState>,
     mobile_entity_state: __sdk::TableAppliedDiff<'r, MobileEntityState>,
     moderation_action_log_entry: __sdk::TableAppliedDiff<'r, ModerationActionLogEntry>,
     mounting_state: __sdk::TableAppliedDiff<'r, MountingState>,
@@ -7053,6 +7151,7 @@ pub struct AppliedDiff<'r> {
     player_developer_notification_state:
         __sdk::TableAppliedDiff<'r, PlayerDeveloperNotificationState>,
     player_housing_desc: __sdk::TableAppliedDiff<'r, PlayerHousingDesc>,
+    player_housing_moving_cost_state: __sdk::TableAppliedDiff<'r, PlayerHousingMovingCostState>,
     player_housing_state: __sdk::TableAppliedDiff<'r, PlayerHousingState>,
     player_lowercase_username_state: __sdk::TableAppliedDiff<'r, PlayerLowercaseUsernameState>,
     player_note_state: __sdk::TableAppliedDiff<'r, PlayerNoteState>,
@@ -7094,6 +7193,7 @@ pub struct AppliedDiff<'r> {
     skill_desc: __sdk::TableAppliedDiff<'r, SkillDesc>,
     staged_static_data: __sdk::TableAppliedDiff<'r, StagedStaticData>,
     staged_static_data_v_2: __sdk::TableAppliedDiff<'r, StagedStaticDataV2>,
+    staged_static_data_v_3: __sdk::TableAppliedDiff<'r, StagedStaticDataV3>,
     stamina_state: __sdk::TableAppliedDiff<'r, StaminaState>,
     starving_player_state: __sdk::TableAppliedDiff<'r, StarvingPlayerState>,
     storage_log_state: __sdk::TableAppliedDiff<'r, ActionLogState>,
@@ -7118,6 +7218,7 @@ pub struct AppliedDiff<'r> {
     unclaimed_collectibles_state: __sdk::TableAppliedDiff<'r, UnclaimedCollectiblesState>,
     unclaimed_shards_state: __sdk::TableAppliedDiff<'r, UnclaimedShardsState>,
     user_authentication_state: __sdk::TableAppliedDiff<'r, UserAuthenticationState>,
+    user_creation_timestamp_state: __sdk::TableAppliedDiff<'r, UserCreationTimestampState>,
     user_moderation_state: __sdk::TableAppliedDiff<'r, UserModerationState>,
     user_previous_region_state: __sdk::TableAppliedDiff<'r, UserPreviousRegionState>,
     user_region_state: __sdk::TableAppliedDiff<'r, UserRegionState>,
@@ -7125,6 +7226,7 @@ pub struct AppliedDiff<'r> {
     vault_state: __sdk::TableAppliedDiff<'r, VaultState>,
     visibility_state: __sdk::TableAppliedDiff<'r, VisibilityState>,
     wall_desc: __sdk::TableAppliedDiff<'r, WallDesc>,
+    waystone_state: __sdk::TableAppliedDiff<'r, WaystoneState>,
     weapon_desc: __sdk::TableAppliedDiff<'r, WeaponDesc>,
     weapon_type_desc: __sdk::TableAppliedDiff<'r, WeaponTypeDesc>,
     world_region_name_state: __sdk::TableAppliedDiff<'r, WorldRegionNameState>,
@@ -7183,6 +7285,7 @@ impl<'r> __sdk::AppliedDiff<'r> for AppliedDiff<'r> {
             &self.auto_claim_state,
             event,
         );
+        callbacks.invoke_table_row_callbacks::<BankState>("bank_state", &self.bank_state, event);
         callbacks.invoke_table_row_callbacks::<BarterStallState>(
             "barter_stall_state",
             &self.barter_stall_state,
@@ -7366,6 +7469,11 @@ impl<'r> __sdk::AppliedDiff<'r> for AppliedDiff<'r> {
         callbacks.invoke_table_row_callbacks::<ContributionLootDesc>(
             "contribution_loot_desc",
             &self.contribution_loot_desc,
+            event,
+        );
+        callbacks.invoke_table_row_callbacks::<ContributionLootDescV2>(
+            "contribution_loot_desc_v2",
+            &self.contribution_loot_desc_v_2,
             event,
         );
         callbacks.invoke_table_row_callbacks::<ContributionState>(
@@ -7878,6 +7986,11 @@ impl<'r> __sdk::AppliedDiff<'r> for AppliedDiff<'r> {
             &self.lost_items_state,
             event,
         );
+        callbacks.invoke_table_row_callbacks::<MarketplaceState>(
+            "marketplace_state",
+            &self.marketplace_state,
+            event,
+        );
         callbacks.invoke_table_row_callbacks::<MobileEntityState>(
             "mobile_entity_state",
             &self.mobile_entity_state,
@@ -7978,6 +8091,11 @@ impl<'r> __sdk::AppliedDiff<'r> for AppliedDiff<'r> {
         callbacks.invoke_table_row_callbacks::<PlayerHousingDesc>(
             "player_housing_desc",
             &self.player_housing_desc,
+            event,
+        );
+        callbacks.invoke_table_row_callbacks::<PlayerHousingMovingCostState>(
+            "player_housing_moving_cost_state",
+            &self.player_housing_moving_cost_state,
             event,
         );
         callbacks.invoke_table_row_callbacks::<PlayerHousingState>(
@@ -8177,6 +8295,11 @@ impl<'r> __sdk::AppliedDiff<'r> for AppliedDiff<'r> {
             &self.staged_static_data_v_2,
             event,
         );
+        callbacks.invoke_table_row_callbacks::<StagedStaticDataV3>(
+            "staged_static_data_v3",
+            &self.staged_static_data_v_3,
+            event,
+        );
         callbacks.invoke_table_row_callbacks::<StaminaState>(
             "stamina_state",
             &self.stamina_state,
@@ -8293,6 +8416,11 @@ impl<'r> __sdk::AppliedDiff<'r> for AppliedDiff<'r> {
             &self.user_authentication_state,
             event,
         );
+        callbacks.invoke_table_row_callbacks::<UserCreationTimestampState>(
+            "user_creation_timestamp_state",
+            &self.user_creation_timestamp_state,
+            event,
+        );
         callbacks.invoke_table_row_callbacks::<UserModerationState>(
             "user_moderation_state",
             &self.user_moderation_state,
@@ -8316,6 +8444,11 @@ impl<'r> __sdk::AppliedDiff<'r> for AppliedDiff<'r> {
             event,
         );
         callbacks.invoke_table_row_callbacks::<WallDesc>("wall_desc", &self.wall_desc, event);
+        callbacks.invoke_table_row_callbacks::<WaystoneState>(
+            "waystone_state",
+            &self.waystone_state,
+            event,
+        );
         callbacks.invoke_table_row_callbacks::<WeaponDesc>("weapon_desc", &self.weapon_desc, event);
         callbacks.invoke_table_row_callbacks::<WeaponTypeDesc>(
             "weapon_type_desc",
@@ -8917,6 +9050,7 @@ impl __sdk::SpacetimeModule for RemoteModule {
         attached_herds_state_table::register_table(client_cache);
         attack_outcome_state_table::register_table(client_cache);
         auto_claim_state_table::register_table(client_cache);
+        bank_state_table::register_table(client_cache);
         barter_stall_state_table::register_table(client_cache);
         biome_desc_table::register_table(client_cache);
         blocked_identity_table::register_table(client_cache);
@@ -8958,6 +9092,7 @@ impl __sdk::SpacetimeModule for RemoteModule {
         config_table::register_table(client_cache);
         construction_recipe_desc_table::register_table(client_cache);
         contribution_loot_desc_table::register_table(client_cache);
+        contribution_loot_desc_v_2_table::register_table(client_cache);
         contribution_state_table::register_table(client_cache);
         crafting_recipe_desc_table::register_table(client_cache);
         deconstruction_recipe_desc_table::register_table(client_cache);
@@ -9068,6 +9203,7 @@ impl __sdk::SpacetimeModule for RemoteModule {
         loot_rarity_desc_table::register_table(client_cache);
         loot_table_desc_table::register_table(client_cache);
         lost_items_state_table::register_table(client_cache);
+        marketplace_state_table::register_table(client_cache);
         mobile_entity_state_table::register_table(client_cache);
         moderation_action_log_entry_table::register_table(client_cache);
         mounting_state_table::register_table(client_cache);
@@ -9090,6 +9226,7 @@ impl __sdk::SpacetimeModule for RemoteModule {
         player_action_state_table::register_table(client_cache);
         player_developer_notification_state_table::register_table(client_cache);
         player_housing_desc_table::register_table(client_cache);
+        player_housing_moving_cost_state_table::register_table(client_cache);
         player_housing_state_table::register_table(client_cache);
         player_lowercase_username_state_table::register_table(client_cache);
         player_note_state_table::register_table(client_cache);
@@ -9131,6 +9268,7 @@ impl __sdk::SpacetimeModule for RemoteModule {
         skill_desc_table::register_table(client_cache);
         staged_static_data_table::register_table(client_cache);
         staged_static_data_v_2_table::register_table(client_cache);
+        staged_static_data_v_3_table::register_table(client_cache);
         stamina_state_table::register_table(client_cache);
         starving_player_state_table::register_table(client_cache);
         storage_log_state_table::register_table(client_cache);
@@ -9155,6 +9293,7 @@ impl __sdk::SpacetimeModule for RemoteModule {
         unclaimed_collectibles_state_table::register_table(client_cache);
         unclaimed_shards_state_table::register_table(client_cache);
         user_authentication_state_table::register_table(client_cache);
+        user_creation_timestamp_state_table::register_table(client_cache);
         user_moderation_state_table::register_table(client_cache);
         user_previous_region_state_table::register_table(client_cache);
         user_region_state_table::register_table(client_cache);
@@ -9162,6 +9301,7 @@ impl __sdk::SpacetimeModule for RemoteModule {
         vault_state_table::register_table(client_cache);
         visibility_state_table::register_table(client_cache);
         wall_desc_table::register_table(client_cache);
+        waystone_state_table::register_table(client_cache);
         weapon_desc_table::register_table(client_cache);
         weapon_type_desc_table::register_table(client_cache);
         world_region_name_state_table::register_table(client_cache);
