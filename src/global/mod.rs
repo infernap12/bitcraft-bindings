@@ -193,8 +193,12 @@ pub mod delete_developer_identity_reducer;
 pub mod delete_empire_msg_type;
 pub mod deployable_collectible_state_table;
 pub mod deployable_collectible_state_type;
+pub mod deployable_collectible_state_v_2_table;
+pub mod deployable_collectible_state_v_2_type;
 pub mod deployable_desc_table;
 pub mod deployable_desc_type;
+pub mod deployable_desc_v_2_table;
+pub mod deployable_desc_v_2_type;
 pub mod deployable_state_table;
 pub mod deployable_state_type;
 pub mod deployable_type_type;
@@ -553,6 +557,7 @@ pub mod import_vault_state_reducer;
 pub mod import_wall_desc_reducer;
 pub mod import_weapon_desc_reducer;
 pub mod import_weapon_type_desc_reducer;
+pub mod import_wind_params_desc_reducer;
 pub mod import_world_region_name_state_reducer;
 pub mod import_world_region_state_reducer;
 pub mod input_item_stack_type;
@@ -561,6 +566,8 @@ pub mod inter_module_message_counter_table;
 pub mod inter_module_message_counter_type;
 pub mod inter_module_message_table;
 pub mod inter_module_message_type;
+pub mod inter_module_message_v_2_table;
+pub mod inter_module_message_v_2_type;
 pub mod inter_module_response_message_counter_table;
 pub mod inter_module_response_message_counter_type;
 pub mod inter_module_table_updates_type;
@@ -666,6 +673,7 @@ pub mod lost_items_state_type;
 pub mod marketplace_state_table;
 pub mod marketplace_state_type;
 pub mod message_contents_type;
+pub mod message_contents_v_2_type;
 pub mod mobile_entity_state_table;
 pub mod mobile_entity_state_type;
 pub mod moderation_action_log_entry_table;
@@ -760,6 +768,8 @@ pub mod player_report_state_timestamp_type;
 pub mod player_report_state_type;
 pub mod player_set_name_reducer;
 pub mod player_set_name_request_type;
+pub mod player_settings_state_table;
+pub mod player_settings_state_type;
 pub mod player_shard_state_table;
 pub mod player_shard_state_type;
 pub mod player_sign_in_request_type;
@@ -935,6 +945,7 @@ pub mod stage_traveler_trade_order_desc_reducer;
 pub mod stage_wall_desc_reducer;
 pub mod stage_weapon_desc_reducer;
 pub mod stage_weapon_type_desc_reducer;
+pub mod stage_wind_params_desc_reducer;
 pub mod staged_static_data_table;
 pub mod staged_static_data_type;
 pub mod staged_static_data_v_2_table;
@@ -943,6 +954,8 @@ pub mod staged_static_data_v_3_table;
 pub mod staged_static_data_v_3_type;
 pub mod staged_static_data_v_4_table;
 pub mod staged_static_data_v_4_type;
+pub mod staged_static_data_v_5_table;
+pub mod staged_static_data_v_5_type;
 pub mod stamina_state_table;
 pub mod stamina_state_type;
 pub mod starving_player_state_table;
@@ -951,6 +964,7 @@ pub mod static_data_upload_type;
 pub mod static_data_upload_v_2_type;
 pub mod static_data_upload_v_3_type;
 pub mod static_data_upload_v_4_type;
+pub mod static_data_upload_v_5_type;
 pub mod storage_log_state_table;
 pub mod surface_type_type;
 pub mod target_state_table;
@@ -991,6 +1005,7 @@ pub mod trade_session_state_type;
 pub mod trade_session_status_type;
 pub mod transfer_player_housing_msg_type;
 pub mod transfer_player_msg_type;
+pub mod transfer_player_msg_v_2_type;
 pub mod traveler_task_desc_table;
 pub mod traveler_task_desc_type;
 pub mod traveler_task_state_table;
@@ -1042,6 +1057,10 @@ pub mod weapon_desc_table;
 pub mod weapon_desc_type;
 pub mod weapon_type_desc_table;
 pub mod weapon_type_desc_type;
+pub mod wind_dbg_desc_table;
+pub mod wind_dbg_desc_type;
+pub mod wind_params_desc_table;
+pub mod wind_params_desc_type;
 pub mod world_region_name_state_table;
 pub mod world_region_name_state_type;
 pub mod world_region_state_table;
@@ -1315,8 +1334,12 @@ pub use delete_developer_identity_reducer::{
 pub use delete_empire_msg_type::DeleteEmpireMsg;
 pub use deployable_collectible_state_table::*;
 pub use deployable_collectible_state_type::DeployableCollectibleState;
+pub use deployable_collectible_state_v_2_table::*;
+pub use deployable_collectible_state_v_2_type::DeployableCollectibleStateV2;
 pub use deployable_desc_table::*;
 pub use deployable_desc_type::DeployableDesc;
+pub use deployable_desc_v_2_table::*;
+pub use deployable_desc_v_2_type::DeployableDescV2;
 pub use deployable_state_table::*;
 pub use deployable_state_type::DeployableState;
 pub use deployable_type_type::DeployableType;
@@ -2129,6 +2152,9 @@ pub use import_weapon_desc_reducer::{
 pub use import_weapon_type_desc_reducer::{
     import_weapon_type_desc, set_flags_for_import_weapon_type_desc, ImportWeaponTypeDescCallbackId,
 };
+pub use import_wind_params_desc_reducer::{
+    import_wind_params_desc, set_flags_for_import_wind_params_desc, ImportWindParamsDescCallbackId,
+};
 pub use import_world_region_name_state_reducer::{
     import_world_region_name_state, set_flags_for_import_world_region_name_state,
     ImportWorldRegionNameStateCallbackId,
@@ -2146,6 +2172,8 @@ pub use inter_module_message_counter_table::*;
 pub use inter_module_message_counter_type::InterModuleMessageCounter;
 pub use inter_module_message_table::*;
 pub use inter_module_message_type::InterModuleMessage;
+pub use inter_module_message_v_2_table::*;
+pub use inter_module_message_v_2_type::InterModuleMessageV2;
 pub use inter_module_response_message_counter_table::*;
 pub use inter_module_response_message_counter_type::InterModuleResponseMessageCounter;
 pub use inter_module_table_updates_type::InterModuleTableUpdates;
@@ -2255,6 +2283,7 @@ pub use lost_items_state_type::LostItemsState;
 pub use marketplace_state_table::*;
 pub use marketplace_state_type::MarketplaceState;
 pub use message_contents_type::MessageContents;
+pub use message_contents_v_2_type::MessageContentsV2;
 pub use mobile_entity_state_table::*;
 pub use mobile_entity_state_type::MobileEntityState;
 pub use moderation_action_log_entry_table::*;
@@ -2365,6 +2394,8 @@ pub use player_set_name_reducer::{
     player_set_name, set_flags_for_player_set_name, PlayerSetNameCallbackId,
 };
 pub use player_set_name_request_type::PlayerSetNameRequest;
+pub use player_settings_state_table::*;
+pub use player_settings_state_type::PlayerSettingsState;
 pub use player_shard_state_table::*;
 pub use player_shard_state_type::PlayerShardState;
 pub use player_sign_in_request_type::PlayerSignInRequest;
@@ -2775,6 +2806,9 @@ pub use stage_weapon_desc_reducer::{
 pub use stage_weapon_type_desc_reducer::{
     set_flags_for_stage_weapon_type_desc, stage_weapon_type_desc, StageWeaponTypeDescCallbackId,
 };
+pub use stage_wind_params_desc_reducer::{
+    set_flags_for_stage_wind_params_desc, stage_wind_params_desc, StageWindParamsDescCallbackId,
+};
 pub use staged_static_data_table::*;
 pub use staged_static_data_type::StagedStaticData;
 pub use staged_static_data_v_2_table::*;
@@ -2783,6 +2817,8 @@ pub use staged_static_data_v_3_table::*;
 pub use staged_static_data_v_3_type::StagedStaticDataV3;
 pub use staged_static_data_v_4_table::*;
 pub use staged_static_data_v_4_type::StagedStaticDataV4;
+pub use staged_static_data_v_5_table::*;
+pub use staged_static_data_v_5_type::StagedStaticDataV5;
 pub use stamina_state_table::*;
 pub use stamina_state_type::StaminaState;
 pub use starving_player_state_table::*;
@@ -2791,6 +2827,7 @@ pub use static_data_upload_type::StaticDataUpload;
 pub use static_data_upload_v_2_type::StaticDataUploadV2;
 pub use static_data_upload_v_3_type::StaticDataUploadV3;
 pub use static_data_upload_v_4_type::StaticDataUploadV4;
+pub use static_data_upload_v_5_type::StaticDataUploadV5;
 pub use storage_log_state_table::*;
 pub use surface_type_type::SurfaceType;
 pub use target_state_table::*;
@@ -2831,6 +2868,7 @@ pub use trade_session_state_type::TradeSessionState;
 pub use trade_session_status_type::TradeSessionStatus;
 pub use transfer_player_housing_msg_type::TransferPlayerHousingMsg;
 pub use transfer_player_msg_type::TransferPlayerMsg;
+pub use transfer_player_msg_v_2_type::TransferPlayerMsgV2;
 pub use traveler_task_desc_table::*;
 pub use traveler_task_desc_type::TravelerTaskDesc;
 pub use traveler_task_state_table::*;
@@ -2899,6 +2937,10 @@ pub use weapon_desc_table::*;
 pub use weapon_desc_type::WeaponDesc;
 pub use weapon_type_desc_table::*;
 pub use weapon_type_desc_type::WeaponTypeDesc;
+pub use wind_dbg_desc_table::*;
+pub use wind_dbg_desc_type::WindDbgDesc;
+pub use wind_params_desc_table::*;
+pub use wind_params_desc_type::WindParamsDesc;
 pub use world_region_name_state_table::*;
 pub use world_region_name_state_type::WorldRegionNameState;
 pub use world_region_state_table::*;
@@ -3222,7 +3264,7 @@ pub enum Reducer {
         records: Vec<DeconstructionRecipeDesc>,
     },
     ImportDeployableDesc {
-        records: Vec<DeployableDesc>,
+        records: Vec<DeployableDescV2>,
     },
     ImportDeployableState {
         records: Vec<DeployableState>,
@@ -3578,6 +3620,9 @@ pub enum Reducer {
     ImportWeaponTypeDesc {
         records: Vec<WeaponTypeDesc>,
     },
+    ImportWindParamsDesc {
+        records: Vec<WindParamsDesc>,
+    },
     ImportWorldRegionNameState {
         records: Vec<WorldRegionNameState>,
     },
@@ -3618,7 +3663,7 @@ pub enum Reducer {
     },
     ProcessInterModuleMessage {
         sender: u8,
-        message: InterModuleMessage,
+        message: InterModuleMessageV2,
     },
     RemoveFavoriteFriend {
         player_entity_id: u64,
@@ -3715,7 +3760,7 @@ pub enum Reducer {
         records: Vec<DeconstructionRecipeDesc>,
     },
     StageDeployableDesc {
-        records: Vec<DeployableDesc>,
+        records: Vec<DeployableDescV2>,
     },
     StageDistantVisibleEntityDesc {
         records: Vec<DistantVisibleEntityDesc>,
@@ -3893,6 +3938,9 @@ pub enum Reducer {
     },
     StageWeaponTypeDesc {
         records: Vec<WeaponTypeDesc>,
+    },
+    StageWindParamsDesc {
+        records: Vec<WindParamsDesc>,
     },
     UnblockPlayer {
         player_entity_id: u64,
@@ -4157,6 +4205,7 @@ impl __sdk::Reducer for Reducer {
             Reducer::ImportWallDesc { .. } => "import_wall_desc",
             Reducer::ImportWeaponDesc { .. } => "import_weapon_desc",
             Reducer::ImportWeaponTypeDesc { .. } => "import_weapon_type_desc",
+            Reducer::ImportWindParamsDesc { .. } => "import_wind_params_desc",
             Reducer::ImportWorldRegionNameState { .. } => "import_world_region_name_state",
             Reducer::ImportWorldRegionState { .. } => "import_world_region_state",
             Reducer::InsertDeveloperIdentity { .. } => "insert_developer_identity",
@@ -4267,6 +4316,7 @@ impl __sdk::Reducer for Reducer {
             Reducer::StageWallDesc { .. } => "stage_wall_desc",
             Reducer::StageWeaponDesc { .. } => "stage_weapon_desc",
             Reducer::StageWeaponTypeDesc { .. } => "stage_weapon_type_desc",
+            Reducer::StageWindParamsDesc { .. } => "stage_wind_params_desc",
             Reducer::UnblockPlayer { .. } => "unblock_player",
             Reducer::UpdateRoleForPlayer { .. } => "update_role_for_player",
             Reducer::UpdateScheduledTimersFromStaticData => {
@@ -4499,6 +4549,7 @@ impl TryFrom<__ws::ReducerCallInfo<__ws::BsatnFormat>> for Reducer {
             "import_wall_desc" => Ok(__sdk::parse_reducer_args::<import_wall_desc_reducer::ImportWallDescArgs>("import_wall_desc", &value.args)?.into()),
             "import_weapon_desc" => Ok(__sdk::parse_reducer_args::<import_weapon_desc_reducer::ImportWeaponDescArgs>("import_weapon_desc", &value.args)?.into()),
             "import_weapon_type_desc" => Ok(__sdk::parse_reducer_args::<import_weapon_type_desc_reducer::ImportWeaponTypeDescArgs>("import_weapon_type_desc", &value.args)?.into()),
+            "import_wind_params_desc" => Ok(__sdk::parse_reducer_args::<import_wind_params_desc_reducer::ImportWindParamsDescArgs>("import_wind_params_desc", &value.args)?.into()),
             "import_world_region_name_state" => Ok(__sdk::parse_reducer_args::<import_world_region_name_state_reducer::ImportWorldRegionNameStateArgs>("import_world_region_name_state", &value.args)?.into()),
             "import_world_region_state" => Ok(__sdk::parse_reducer_args::<import_world_region_state_reducer::ImportWorldRegionStateArgs>("import_world_region_state", &value.args)?.into()),
             "insert_developer_identity" => Ok(__sdk::parse_reducer_args::<insert_developer_identity_reducer::InsertDeveloperIdentityArgs>("insert_developer_identity", &value.args)?.into()),
@@ -4605,6 +4656,7 @@ impl TryFrom<__ws::ReducerCallInfo<__ws::BsatnFormat>> for Reducer {
             "stage_wall_desc" => Ok(__sdk::parse_reducer_args::<stage_wall_desc_reducer::StageWallDescArgs>("stage_wall_desc", &value.args)?.into()),
             "stage_weapon_desc" => Ok(__sdk::parse_reducer_args::<stage_weapon_desc_reducer::StageWeaponDescArgs>("stage_weapon_desc", &value.args)?.into()),
             "stage_weapon_type_desc" => Ok(__sdk::parse_reducer_args::<stage_weapon_type_desc_reducer::StageWeaponTypeDescArgs>("stage_weapon_type_desc", &value.args)?.into()),
+            "stage_wind_params_desc" => Ok(__sdk::parse_reducer_args::<stage_wind_params_desc_reducer::StageWindParamsDescArgs>("stage_wind_params_desc", &value.args)?.into()),
             "unblock_player" => Ok(__sdk::parse_reducer_args::<unblock_player_reducer::UnblockPlayerArgs>("unblock_player", &value.args)?.into()),
             "update_role_for_player" => Ok(__sdk::parse_reducer_args::<update_role_for_player_reducer::UpdateRoleForPlayerArgs>("update_role_for_player", &value.args)?.into()),
             "update_scheduled_timers_from_static_data" => Ok(__sdk::parse_reducer_args::<update_scheduled_timers_from_static_data_reducer::UpdateScheduledTimersFromStaticDataArgs>("update_scheduled_timers_from_static_data", &value.args)?.into()),
@@ -4680,7 +4732,9 @@ pub struct DbUpdate {
     crafting_recipe_desc: __sdk::TableUpdate<CraftingRecipeDesc>,
     deconstruction_recipe_desc: __sdk::TableUpdate<DeconstructionRecipeDesc>,
     deployable_collectible_state: __sdk::TableUpdate<DeployableCollectibleState>,
+    deployable_collectible_state_v_2: __sdk::TableUpdate<DeployableCollectibleStateV2>,
     deployable_desc: __sdk::TableUpdate<DeployableDesc>,
+    deployable_desc_v_2: __sdk::TableUpdate<DeployableDescV2>,
     deployable_state: __sdk::TableUpdate<DeployableState>,
     developer: __sdk::TableUpdate<Developer>,
     dimension_description_state: __sdk::TableUpdate<DimensionDescriptionState>,
@@ -4745,6 +4799,7 @@ pub struct DbUpdate {
     identity_role: __sdk::TableUpdate<IdentityRole>,
     inter_module_message: __sdk::TableUpdate<InterModuleMessage>,
     inter_module_message_counter: __sdk::TableUpdate<InterModuleMessageCounter>,
+    inter_module_message_v_2: __sdk::TableUpdate<InterModuleMessageV2>,
     inter_module_response_message_counter: __sdk::TableUpdate<InterModuleResponseMessageCounter>,
     interior_collapse_trigger_state: __sdk::TableUpdate<InteriorCollapseTriggerState>,
     interior_environment_desc: __sdk::TableUpdate<InteriorEnvironmentDesc>,
@@ -4820,6 +4875,7 @@ pub struct DbUpdate {
     player_queue_state: __sdk::TableUpdate<PlayerQueueState>,
     player_report_state: __sdk::TableUpdate<PlayerReportState>,
     player_report_state_timestamp: __sdk::TableUpdate<PlayerReportStateTimestamp>,
+    player_settings_state: __sdk::TableUpdate<PlayerSettingsState>,
     player_shard_state: __sdk::TableUpdate<PlayerShardState>,
     player_state: __sdk::TableUpdate<PlayerState>,
     player_timestamp_state: __sdk::TableUpdate<PlayerTimestampState>,
@@ -4855,6 +4911,7 @@ pub struct DbUpdate {
     staged_static_data_v_2: __sdk::TableUpdate<StagedStaticDataV2>,
     staged_static_data_v_3: __sdk::TableUpdate<StagedStaticDataV3>,
     staged_static_data_v_4: __sdk::TableUpdate<StagedStaticDataV4>,
+    staged_static_data_v_5: __sdk::TableUpdate<StagedStaticDataV5>,
     stamina_state: __sdk::TableUpdate<StaminaState>,
     starving_player_state: __sdk::TableUpdate<StarvingPlayerState>,
     storage_log_state: __sdk::TableUpdate<ActionLogState>,
@@ -4890,6 +4947,8 @@ pub struct DbUpdate {
     waystone_state: __sdk::TableUpdate<WaystoneState>,
     weapon_desc: __sdk::TableUpdate<WeaponDesc>,
     weapon_type_desc: __sdk::TableUpdate<WeaponTypeDesc>,
+    wind_dbg_desc: __sdk::TableUpdate<WindDbgDesc>,
+    wind_params_desc: __sdk::TableUpdate<WindParamsDesc>,
     world_region_name_state: __sdk::TableUpdate<WorldRegionNameState>,
     world_region_state: __sdk::TableUpdate<WorldRegionState>,
 }
@@ -5081,9 +5140,17 @@ impl TryFrom<__ws::DatabaseUpdate<__ws::BsatnFormat>> for DbUpdate {
                 "deployable_collectible_state" => db_update.deployable_collectible_state.append(
                     deployable_collectible_state_table::parse_table_update(table_update)?,
                 ),
+                "deployable_collectible_state_v2" => {
+                    db_update.deployable_collectible_state_v_2.append(
+                        deployable_collectible_state_v_2_table::parse_table_update(table_update)?,
+                    )
+                }
                 "deployable_desc" => db_update
                     .deployable_desc
                     .append(deployable_desc_table::parse_table_update(table_update)?),
+                "deployable_desc_v2" => db_update
+                    .deployable_desc_v_2
+                    .append(deployable_desc_v_2_table::parse_table_update(table_update)?),
                 "deployable_state" => db_update
                     .deployable_state
                     .append(deployable_state_table::parse_table_update(table_update)?),
@@ -5275,6 +5342,9 @@ impl TryFrom<__ws::DatabaseUpdate<__ws::BsatnFormat>> for DbUpdate {
                 ),
                 "inter_module_message_counter" => db_update.inter_module_message_counter.append(
                     inter_module_message_counter_table::parse_table_update(table_update)?,
+                ),
+                "inter_module_message_v2" => db_update.inter_module_message_v_2.append(
+                    inter_module_message_v_2_table::parse_table_update(table_update)?,
                 ),
                 "inter_module_response_message_counter" => {
                     db_update.inter_module_response_message_counter.append(
@@ -5525,6 +5595,9 @@ impl TryFrom<__ws::DatabaseUpdate<__ws::BsatnFormat>> for DbUpdate {
                 "player_report_state_timestamp" => db_update.player_report_state_timestamp.append(
                     player_report_state_timestamp_table::parse_table_update(table_update)?,
                 ),
+                "player_settings_state" => db_update.player_settings_state.append(
+                    player_settings_state_table::parse_table_update(table_update)?,
+                ),
                 "player_shard_state" => db_update
                     .player_shard_state
                     .append(player_shard_state_table::parse_table_update(table_update)?),
@@ -5634,6 +5707,9 @@ impl TryFrom<__ws::DatabaseUpdate<__ws::BsatnFormat>> for DbUpdate {
                 "staged_static_data_v4" => db_update.staged_static_data_v_4.append(
                     staged_static_data_v_4_table::parse_table_update(table_update)?,
                 ),
+                "staged_static_data_v5" => db_update.staged_static_data_v_5.append(
+                    staged_static_data_v_5_table::parse_table_update(table_update)?,
+                ),
                 "stamina_state" => db_update
                     .stamina_state
                     .append(stamina_state_table::parse_table_update(table_update)?),
@@ -5739,6 +5815,12 @@ impl TryFrom<__ws::DatabaseUpdate<__ws::BsatnFormat>> for DbUpdate {
                 "weapon_type_desc" => db_update
                     .weapon_type_desc
                     .append(weapon_type_desc_table::parse_table_update(table_update)?),
+                "wind_dbg_desc" => db_update
+                    .wind_dbg_desc
+                    .append(wind_dbg_desc_table::parse_table_update(table_update)?),
+                "wind_params_desc" => db_update
+                    .wind_params_desc
+                    .append(wind_params_desc_table::parse_table_update(table_update)?),
                 "world_region_name_state" => db_update.world_region_name_state.append(
                     world_region_name_state_table::parse_table_update(table_update)?,
                 ),
@@ -6024,8 +6106,20 @@ impl __sdk::DbUpdate for DbUpdate {
                 &self.deployable_collectible_state,
             )
             .with_updates_by_pk(|row| &row.deployable_entity_id);
+        diff.deployable_collectible_state_v_2 = cache
+            .apply_diff_to_table::<DeployableCollectibleStateV2>(
+                "deployable_collectible_state_v2",
+                &self.deployable_collectible_state_v_2,
+            )
+            .with_updates_by_pk(|row| &row.deployable_entity_id);
         diff.deployable_desc = cache
             .apply_diff_to_table::<DeployableDesc>("deployable_desc", &self.deployable_desc)
+            .with_updates_by_pk(|row| &row.id);
+        diff.deployable_desc_v_2 = cache
+            .apply_diff_to_table::<DeployableDescV2>(
+                "deployable_desc_v2",
+                &self.deployable_desc_v_2,
+            )
             .with_updates_by_pk(|row| &row.id);
         diff.deployable_state = cache
             .apply_diff_to_table::<DeployableState>("deployable_state", &self.deployable_state)
@@ -6325,6 +6419,12 @@ impl __sdk::DbUpdate for DbUpdate {
                 &self.inter_module_message_counter,
             )
             .with_updates_by_pk(|row| &row.module_id);
+        diff.inter_module_message_v_2 = cache
+            .apply_diff_to_table::<InterModuleMessageV2>(
+                "inter_module_message_v2",
+                &self.inter_module_message_v_2,
+            )
+            .with_updates_by_pk(|row| &row.id);
         diff.inter_module_response_message_counter = cache
             .apply_diff_to_table::<InterModuleResponseMessageCounter>(
                 "inter_module_response_message_counter",
@@ -6703,6 +6803,12 @@ impl __sdk::DbUpdate for DbUpdate {
                 &self.player_report_state_timestamp,
             )
             .with_updates_by_pk(|row| &row.entity_id);
+        diff.player_settings_state = cache
+            .apply_diff_to_table::<PlayerSettingsState>(
+                "player_settings_state",
+                &self.player_settings_state,
+            )
+            .with_updates_by_pk(|row| &row.entity_id);
         diff.player_shard_state = cache
             .apply_diff_to_table::<PlayerShardState>("player_shard_state", &self.player_shard_state)
             .with_updates_by_pk(|row| &row.entity_id);
@@ -6868,6 +6974,12 @@ impl __sdk::DbUpdate for DbUpdate {
                 &self.staged_static_data_v_4,
             )
             .with_updates_by_pk(|row| &row.version);
+        diff.staged_static_data_v_5 = cache
+            .apply_diff_to_table::<StagedStaticDataV5>(
+                "staged_static_data_v5",
+                &self.staged_static_data_v_5,
+            )
+            .with_updates_by_pk(|row| &row.version);
         diff.stamina_state = cache
             .apply_diff_to_table::<StaminaState>("stamina_state", &self.stamina_state)
             .with_updates_by_pk(|row| &row.entity_id);
@@ -7021,6 +7133,12 @@ impl __sdk::DbUpdate for DbUpdate {
         diff.weapon_type_desc = cache
             .apply_diff_to_table::<WeaponTypeDesc>("weapon_type_desc", &self.weapon_type_desc)
             .with_updates_by_pk(|row| &row.id);
+        diff.wind_dbg_desc = cache
+            .apply_diff_to_table::<WindDbgDesc>("wind_dbg_desc", &self.wind_dbg_desc)
+            .with_updates_by_pk(|row| &row.id);
+        diff.wind_params_desc = cache
+            .apply_diff_to_table::<WindParamsDesc>("wind_params_desc", &self.wind_params_desc)
+            .with_updates_by_pk(|row| &row.id);
         diff.world_region_name_state = cache
             .apply_diff_to_table::<WorldRegionNameState>(
                 "world_region_name_state",
@@ -7099,7 +7217,9 @@ pub struct AppliedDiff<'r> {
     crafting_recipe_desc: __sdk::TableAppliedDiff<'r, CraftingRecipeDesc>,
     deconstruction_recipe_desc: __sdk::TableAppliedDiff<'r, DeconstructionRecipeDesc>,
     deployable_collectible_state: __sdk::TableAppliedDiff<'r, DeployableCollectibleState>,
+    deployable_collectible_state_v_2: __sdk::TableAppliedDiff<'r, DeployableCollectibleStateV2>,
     deployable_desc: __sdk::TableAppliedDiff<'r, DeployableDesc>,
+    deployable_desc_v_2: __sdk::TableAppliedDiff<'r, DeployableDescV2>,
     deployable_state: __sdk::TableAppliedDiff<'r, DeployableState>,
     developer: __sdk::TableAppliedDiff<'r, Developer>,
     dimension_description_state: __sdk::TableAppliedDiff<'r, DimensionDescriptionState>,
@@ -7164,6 +7284,7 @@ pub struct AppliedDiff<'r> {
     identity_role: __sdk::TableAppliedDiff<'r, IdentityRole>,
     inter_module_message: __sdk::TableAppliedDiff<'r, InterModuleMessage>,
     inter_module_message_counter: __sdk::TableAppliedDiff<'r, InterModuleMessageCounter>,
+    inter_module_message_v_2: __sdk::TableAppliedDiff<'r, InterModuleMessageV2>,
     inter_module_response_message_counter:
         __sdk::TableAppliedDiff<'r, InterModuleResponseMessageCounter>,
     interior_collapse_trigger_state: __sdk::TableAppliedDiff<'r, InteriorCollapseTriggerState>,
@@ -7243,6 +7364,7 @@ pub struct AppliedDiff<'r> {
     player_queue_state: __sdk::TableAppliedDiff<'r, PlayerQueueState>,
     player_report_state: __sdk::TableAppliedDiff<'r, PlayerReportState>,
     player_report_state_timestamp: __sdk::TableAppliedDiff<'r, PlayerReportStateTimestamp>,
+    player_settings_state: __sdk::TableAppliedDiff<'r, PlayerSettingsState>,
     player_shard_state: __sdk::TableAppliedDiff<'r, PlayerShardState>,
     player_state: __sdk::TableAppliedDiff<'r, PlayerState>,
     player_timestamp_state: __sdk::TableAppliedDiff<'r, PlayerTimestampState>,
@@ -7278,6 +7400,7 @@ pub struct AppliedDiff<'r> {
     staged_static_data_v_2: __sdk::TableAppliedDiff<'r, StagedStaticDataV2>,
     staged_static_data_v_3: __sdk::TableAppliedDiff<'r, StagedStaticDataV3>,
     staged_static_data_v_4: __sdk::TableAppliedDiff<'r, StagedStaticDataV4>,
+    staged_static_data_v_5: __sdk::TableAppliedDiff<'r, StagedStaticDataV5>,
     stamina_state: __sdk::TableAppliedDiff<'r, StaminaState>,
     starving_player_state: __sdk::TableAppliedDiff<'r, StarvingPlayerState>,
     storage_log_state: __sdk::TableAppliedDiff<'r, ActionLogState>,
@@ -7313,6 +7436,8 @@ pub struct AppliedDiff<'r> {
     waystone_state: __sdk::TableAppliedDiff<'r, WaystoneState>,
     weapon_desc: __sdk::TableAppliedDiff<'r, WeaponDesc>,
     weapon_type_desc: __sdk::TableAppliedDiff<'r, WeaponTypeDesc>,
+    wind_dbg_desc: __sdk::TableAppliedDiff<'r, WindDbgDesc>,
+    wind_params_desc: __sdk::TableAppliedDiff<'r, WindParamsDesc>,
     world_region_name_state: __sdk::TableAppliedDiff<'r, WorldRegionNameState>,
     world_region_state: __sdk::TableAppliedDiff<'r, WorldRegionState>,
 }
@@ -7590,9 +7715,19 @@ impl<'r> __sdk::AppliedDiff<'r> for AppliedDiff<'r> {
             &self.deployable_collectible_state,
             event,
         );
+        callbacks.invoke_table_row_callbacks::<DeployableCollectibleStateV2>(
+            "deployable_collectible_state_v2",
+            &self.deployable_collectible_state_v_2,
+            event,
+        );
         callbacks.invoke_table_row_callbacks::<DeployableDesc>(
             "deployable_desc",
             &self.deployable_desc,
+            event,
+        );
+        callbacks.invoke_table_row_callbacks::<DeployableDescV2>(
+            "deployable_desc_v2",
+            &self.deployable_desc_v_2,
             event,
         );
         callbacks.invoke_table_row_callbacks::<DeployableState>(
@@ -7877,6 +8012,11 @@ impl<'r> __sdk::AppliedDiff<'r> for AppliedDiff<'r> {
         callbacks.invoke_table_row_callbacks::<InterModuleMessageCounter>(
             "inter_module_message_counter",
             &self.inter_module_message_counter,
+            event,
+        );
+        callbacks.invoke_table_row_callbacks::<InterModuleMessageV2>(
+            "inter_module_message_v2",
+            &self.inter_module_message_v_2,
             event,
         );
         callbacks.invoke_table_row_callbacks::<InterModuleResponseMessageCounter>(
@@ -8242,6 +8382,11 @@ impl<'r> __sdk::AppliedDiff<'r> for AppliedDiff<'r> {
             &self.player_report_state_timestamp,
             event,
         );
+        callbacks.invoke_table_row_callbacks::<PlayerSettingsState>(
+            "player_settings_state",
+            &self.player_settings_state,
+            event,
+        );
         callbacks.invoke_table_row_callbacks::<PlayerShardState>(
             "player_shard_state",
             &self.player_shard_state,
@@ -8409,6 +8554,11 @@ impl<'r> __sdk::AppliedDiff<'r> for AppliedDiff<'r> {
             &self.staged_static_data_v_4,
             event,
         );
+        callbacks.invoke_table_row_callbacks::<StagedStaticDataV5>(
+            "staged_static_data_v5",
+            &self.staged_static_data_v_5,
+            event,
+        );
         callbacks.invoke_table_row_callbacks::<StaminaState>(
             "stamina_state",
             &self.stamina_state,
@@ -8562,6 +8712,16 @@ impl<'r> __sdk::AppliedDiff<'r> for AppliedDiff<'r> {
         callbacks.invoke_table_row_callbacks::<WeaponTypeDesc>(
             "weapon_type_desc",
             &self.weapon_type_desc,
+            event,
+        );
+        callbacks.invoke_table_row_callbacks::<WindDbgDesc>(
+            "wind_dbg_desc",
+            &self.wind_dbg_desc,
+            event,
+        );
+        callbacks.invoke_table_row_callbacks::<WindParamsDesc>(
+            "wind_params_desc",
+            &self.wind_params_desc,
             event,
         );
         callbacks.invoke_table_row_callbacks::<WorldRegionNameState>(
@@ -9223,7 +9383,9 @@ impl __sdk::SpacetimeModule for RemoteModule {
         crafting_recipe_desc_table::register_table(client_cache);
         deconstruction_recipe_desc_table::register_table(client_cache);
         deployable_collectible_state_table::register_table(client_cache);
+        deployable_collectible_state_v_2_table::register_table(client_cache);
         deployable_desc_table::register_table(client_cache);
+        deployable_desc_v_2_table::register_table(client_cache);
         deployable_state_table::register_table(client_cache);
         developer_table::register_table(client_cache);
         dimension_description_state_table::register_table(client_cache);
@@ -9288,6 +9450,7 @@ impl __sdk::SpacetimeModule for RemoteModule {
         identity_role_table::register_table(client_cache);
         inter_module_message_table::register_table(client_cache);
         inter_module_message_counter_table::register_table(client_cache);
+        inter_module_message_v_2_table::register_table(client_cache);
         inter_module_response_message_counter_table::register_table(client_cache);
         interior_collapse_trigger_state_table::register_table(client_cache);
         interior_environment_desc_table::register_table(client_cache);
@@ -9363,6 +9526,7 @@ impl __sdk::SpacetimeModule for RemoteModule {
         player_queue_state_table::register_table(client_cache);
         player_report_state_table::register_table(client_cache);
         player_report_state_timestamp_table::register_table(client_cache);
+        player_settings_state_table::register_table(client_cache);
         player_shard_state_table::register_table(client_cache);
         player_state_table::register_table(client_cache);
         player_timestamp_state_table::register_table(client_cache);
@@ -9398,6 +9562,7 @@ impl __sdk::SpacetimeModule for RemoteModule {
         staged_static_data_v_2_table::register_table(client_cache);
         staged_static_data_v_3_table::register_table(client_cache);
         staged_static_data_v_4_table::register_table(client_cache);
+        staged_static_data_v_5_table::register_table(client_cache);
         stamina_state_table::register_table(client_cache);
         starving_player_state_table::register_table(client_cache);
         storage_log_state_table::register_table(client_cache);
@@ -9433,6 +9598,8 @@ impl __sdk::SpacetimeModule for RemoteModule {
         waystone_state_table::register_table(client_cache);
         weapon_desc_table::register_table(client_cache);
         weapon_type_desc_table::register_table(client_cache);
+        wind_dbg_desc_table::register_table(client_cache);
+        wind_params_desc_table::register_table(client_cache);
         world_region_name_state_table::register_table(client_cache);
         world_region_state_table::register_table(client_cache);
     }
